@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "searchengine123", "searchengine123\searchengine123.csproj", "{F470EB68-38FA-43BD-BBF8-5CE6294579DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C207D9F4-9E41-4AEF-A71A-EBB02C766F40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F470EB68-38FA-43BD-BBF8-5CE6294579DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F470EB68-38FA-43BD-BBF8-5CE6294579DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F470EB68-38FA-43BD-BBF8-5CE6294579DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F470EB68-38FA-43BD-BBF8-5CE6294579DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FAF385B-5235-4346-8601-232BF077804D}
+	EndGlobalSection
+EndGlobal
