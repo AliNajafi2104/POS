@@ -113,6 +113,7 @@ namespace searchengine123
             #region BUTTONS
             private void btnAddToBasket_Click_1(object sender, EventArgs e)
             {
+
             try
             {
                 panel1.Hide();
@@ -258,6 +259,7 @@ namespace searchengine123
                 multiply = false;
                 
                 this.ActiveControl = null;
+               
             }
             else
                 {
@@ -434,7 +436,7 @@ namespace searchengine123
         private void button9_Click(object sender, EventArgs e)
         {
             multiply = true;
-
+            this.ActiveControl = null;
         }
 
         private void dataGridViewBasket_CellContentClick(object sender, DataGridViewCellEventArgs e)
