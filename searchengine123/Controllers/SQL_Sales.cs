@@ -158,7 +158,7 @@ namespace searchengine123.Back_end
             }
 
         }
-        
+
         public static List<Product> ReadLatestSold()
         {
             List<Product> LatestSold = new List<Product>();
@@ -182,7 +182,7 @@ namespace searchengine123.Back_end
                             }
                             else
                             {
-                                
+
                                 // If the product is not in the list, add it
                                 Product newProduct = new Product
                                 {
@@ -208,7 +208,7 @@ namespace searchengine123.Back_end
                 throw new Exception("Error", ex);
             }
         }
-        
+
         public static List<Udgift> ReadExpenses()
         {
             List<Udgift> Expenses = new List<Udgift>();
@@ -242,6 +242,38 @@ namespace searchengine123.Back_end
                 // Handle the exception or rethrow it as needed
                 throw new Exception("Error", ex);
             }
+        }
+
+
+        public static void CreateSoldBasket(Basket basket)
+        {
+            try
+            {
+                using (MySqlConnection cn = SQL_Product.GetConnection())
+                {
+                    cn.Open();
+
+                    foreach(Dictionary<string,double> dictionary in basket.keyValuePairs)
+                    {
+                        using (MySqlCommand cmd = new MySqlCommand("INSERT INTO solgte_kurve (Kategori,Total,date) VALUES (@Value1,@Value2,@Value3)", cn))
+                        {
+                            cmd.Parameters.AddWithValue("@Value1", dictionary.Keys);
+                            cmd.Parameters.AddWithValue("@Value2", dictionary.Values);
+                            cmd.Parameters.AddWithValue("@Value3", basket.time);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    
+
+                 
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception or rethrow it as needed
+                throw new Exception("Error", ex);
+            }
+
         }
 
 

@@ -138,7 +138,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.dataGridViewBasket.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewBasket.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewBasket.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -227,7 +227,7 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Silver;
             this.dataGridViewNoBarcode.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewNoBarcode.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewNoBarcode.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewNoBarcode.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

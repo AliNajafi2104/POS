@@ -50,7 +50,7 @@ namespace searchengine123
             dataGridView1.RowTemplate.Height = 50;
 
             deleteOne.Image = Properties.Resources.back;
-
+           
 
         }
 
@@ -514,11 +514,16 @@ namespace searchengine123
                                                       .ToDictionary(kv => kv.Key, kv => kv.Value);
 
             // Bind the filtered data to the DataGridView
+           
             dataGridView1.DataSource = nonZeroCategories.Select(kv => new { Kategori = kv.Key, Pris = kv.Value }).ToList();
-
+            Basket basket = new Basket
+            {
+                keyValuePairs = nonZeroCategories.Select(kv => new Dictionary<string, double> { { kv.Key, kv.Value } }).ToList(),
+                Total = nonZeroCategories.Values.Sum()
+            };
             // Calculate and display the overall total
             overallTotal = nonZeroCategories.Values.Sum();
-           
+            SQL_Sales.CreateSoldBasket(basket);
             dataGridView1.ClearSelection();
         }
         

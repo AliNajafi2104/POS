@@ -9,12 +9,16 @@ namespace searchengine123
    
         public class Basket
         {
-            public List<Product> lister = new List<Product>();
-            public double pris_ { get; set; }
-            public void add(Product x)
-            {
-                lister.Add(x);
-            }
+        
+        public Dictionary<String,double> keyValuePairs { get; set; }
+        public double Total { get; set; }
+        public DateTime time { get; set; }
+        public Basket()
+        {
+            // Set the time property to the current time
+            time = DateTime.Now;
         }
+
+    }
     
 }
