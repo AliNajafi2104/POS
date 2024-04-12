@@ -253,12 +253,12 @@ namespace searchengine123.Back_end
                 {
                     cn.Open();
 
-                    foreach(Dictionary<string,double> dictionary in basket.keyValuePairs)
+                    foreach(KeyValuePair<string, double> kvp in basket.keyValuePairs)
                     {
                         using (MySqlCommand cmd = new MySqlCommand("INSERT INTO solgte_kurve (Kategori,Total,date) VALUES (@Value1,@Value2,@Value3)", cn))
                         {
-                            cmd.Parameters.AddWithValue("@Value1", dictionary.Keys);
-                            cmd.Parameters.AddWithValue("@Value2", dictionary.Values);
+                            cmd.Parameters.AddWithValue("@Value1", kvp.Key);
+                            cmd.Parameters.AddWithValue("@Value2", kvp.Value);
                             cmd.Parameters.AddWithValue("@Value3", basket.time);
                             cmd.ExecuteNonQuery();
                         }

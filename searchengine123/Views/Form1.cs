@@ -518,7 +518,7 @@ namespace searchengine123
             dataGridView1.DataSource = nonZeroCategories.Select(kv => new { Kategori = kv.Key, Pris = kv.Value }).ToList();
             Basket basket = new Basket
             {
-                keyValuePairs = nonZeroCategories.Select(kv => new Dictionary<string, double> { { kv.Key, kv.Value } }).ToList(),
+                keyValuePairs =nonZeroCategories,
                 Total = nonZeroCategories.Values.Sum()
             };
             // Calculate and display the overall total
