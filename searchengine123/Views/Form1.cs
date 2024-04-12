@@ -81,7 +81,7 @@ namespace searchengine123
             dataGridViewNoBarcode.DefaultCellStyle.SelectionForeColor = Color.Black;
 
 
-            basketGridStyling();
+            
             }
             private void dataInitialization()
             {
@@ -103,7 +103,7 @@ namespace searchengine123
 
                 totalSumForDagenDisplay = SQL_Sales.ReadDailySale();
                 UpdateProgressBar();
-                dataGridViewBasket.DataSource = scannedProducts;
+                //dataGridViewBasket.DataSource = scannedProducts;
             }
         #endregion
 
@@ -113,9 +113,9 @@ namespace searchengine123
             #region BUTTONS
             private void btnAddToBasket_Click_1(object sender, EventArgs e)
             {
-            
-           
 
+
+            dataGridViewBasket.RowTemplate.Height = 70;
             try
             {
                 panel1.Hide();
@@ -145,7 +145,7 @@ namespace searchengine123
                         {
                             scannedProducts.Add(addedProduct);
                         }
-
+                        
                         totalSum_CurrentBasket += addedProduct.Pris;
                         dataGridViewBasketRefresh();
                         tbBarcode.Clear();
@@ -162,6 +162,7 @@ namespace searchengine123
                     }
                 }
                 multiplier = 1;
+                basketGridStyling();
             }
             catch (Exception ex)
             {
@@ -284,18 +285,20 @@ namespace searchengine123
             #region BASKET_GRIDVIEW
             private void basketGridStyling()
             {
-                dataGridViewBasket.Columns["Kategori"].Visible = false;
+               dataGridViewBasket.Columns["Kategori"].Visible = false;
                 dataGridViewBasket.Columns["Ingen_stregkodemærkning"].Visible = false;
                 dataGridViewBasket.Columns["Vare"].Width = 200;
                 dataGridViewBasket.Columns["Stregkode"].Width = 250;
                 dataGridViewBasket.Columns["Pris"].Width = 130;
                 dataGridViewBasket.Columns["Antal"].Width = 90;
-                dataGridViewBasket.RowTemplate.Height = 50;
+                dataGridViewBasket.RowTemplate.Height = 70;
             dataGridViewBasket.RowHeadersVisible= false;
                 dataGridViewBasket.ScrollBars = ScrollBars.None;
+            dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
 
-            }
-            public void dataGridViewBasketRefresh()
+
+        }
+        public void dataGridViewBasketRefresh()
             {
                 dataGridViewBasket.DataSource = null;
                 dataGridViewBasket.DataSource = scannedProducts;
@@ -309,23 +312,35 @@ namespace searchengine123
                 // Check if the click is on a valid cell
                 if (e.RowIndex >= 0 && e.RowIndex < scannedProducts.Count)
                 {
+
+
+
+                if (scannedProducts[e.RowIndex].Antal > 1)
+                {
+                    totalSum_CurrentBasket -= scannedProducts[e.RowIndex].Pris;
+                    scannedProducts[e.RowIndex].Antal--;
+                    dataGridViewBasketRefresh();
+                }
+                else
+                {
                     Product selectedProduct = scannedProducts[e.RowIndex];
                     totalSum_CurrentBasket -= selectedProduct.Pris;
                     scannedProducts.RemoveAt(e.RowIndex);
                     dataGridViewBasketRefresh();
-
+                }
                 }
             }
-            #endregion
+        #endregion
+
+       
 
 
 
 
 
 
-
-            #region VARIABLES
-            List<Product> scannedProducts = new List<Product>();
+        #region VARIABLES
+        List<Product> scannedProducts = new List<Product>();
             double TotalSqlDate;
             double totalSum_CurrentBasket;
             double totalSumForDagenDisplay;
@@ -526,6 +541,11 @@ namespace searchengine123
         }
 
         private void dataGridViewBasket_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewBasket_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }
