@@ -113,6 +113,8 @@ namespace searchengine123
             #region BUTTONS
             private void btnAddToBasket_Click_1(object sender, EventArgs e)
             {
+            
+           
 
             try
             {
@@ -489,7 +491,7 @@ namespace searchengine123
            
             dataGridView1.ClearSelection();
         }
-
+        
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -519,6 +521,11 @@ namespace searchengine123
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewBasket_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

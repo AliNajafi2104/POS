@@ -172,9 +172,9 @@
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.MintCream;
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewBasket.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewBasket.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewBasket.Size = new System.Drawing.Size(629, 904);
             this.dataGridViewBasket.TabIndex = 3;
+            this.dataGridViewBasket.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBasket_CellClick);
             // 
             // btnOrderConfirmed
             // 
