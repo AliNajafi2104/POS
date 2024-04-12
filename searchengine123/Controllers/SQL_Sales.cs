@@ -253,7 +253,7 @@ namespace searchengine123.Back_end
                 {
                     cn.Open();
 
-                    foreach(KeyValuePair<string, double> kvp in basket.keyValuePairs)
+                    foreach (KeyValuePair<string, double> kvp in basket.keyValuePairs)
                     {
                         using (MySqlCommand cmd = new MySqlCommand("INSERT INTO solgte_kurve (Kategori,Total,date) VALUES (@Value1,@Value2,@Value3)", cn))
                         {
@@ -263,9 +263,9 @@ namespace searchengine123.Back_end
                             cmd.ExecuteNonQuery();
                         }
                     }
-                    
 
-                 
+
+
                 }
             }
             catch (Exception ex)
@@ -276,6 +276,57 @@ namespace searchengine123.Back_end
 
         }
 
+
+        public static List<Basket> ReadSoldBaskets()
+        {
+
+            try
+            {
+                List<Basket> baskets = new List<Basket>(); // List to store Basket objects
+
+                using (MySqlConnection cn = SQL_Product.GetConnection())
+                using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM solgte_kurve WHERE DATE(date) = CURDATE();", cn))
+                {
+                    cn.Open();
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        Dictionary<DateTime, Dictionary<string, double>> basketData = new Dictionary<DateTime, Dictionary<string, double>>();
+
+                        while (reader.Read())
+                        {
+                            DateTime timestamp = reader.GetDateTime("date");
+                            string key = reader.GetString("Kategori");
+                            double value = reader.GetDouble("Total");
+
+                            if (!basketData.ContainsKey(timestamp))
+                            {
+                                basketData[timestamp] = new Dictionary<string, double>();
+                            }
+
+                            basketData[timestamp][key] = value;
+                        }
+
+                        // Create a Basket object for each unique timestamp
+                        foreach (var kvp in basketData)
+                        {
+                            Basket basket = new Basket
+                            {
+                                keyValuePairs = kvp.Value,
+                                time = kvp.Key
+                            };
+
+                            baskets.Add(basket);
+                        }
+                    }
+                }return baskets;
+
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception or rethrow it as needed
+                throw new Exception("Error getting total.", ex);
+            }
+        }
 
     }
 }

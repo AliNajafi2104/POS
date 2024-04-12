@@ -190,7 +190,6 @@
             this.btnOrderConfirmed.Text = "Betaling";
             this.btnOrderConfirmed.UseVisualStyleBackColor = false;
             this.btnOrderConfirmed.Click += new System.EventHandler(this.btnOrderConfirmed_Click);
-            this.btnOrderConfirmed.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             // 
             // label4
             // 
@@ -274,7 +273,6 @@
             this.btnResetBasket.Text = "Nulstil Kurv";
             this.btnResetBasket.UseVisualStyleBackColor = false;
             this.btnResetBasket.Click += new System.EventHandler(this.btnResetBasket_Click);
-            this.btnResetBasket.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             // 
             // tbManuelPrice
             // 
@@ -835,7 +833,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.Control;
+            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.InfoText;
             this.label2.Location = new System.Drawing.Point(21, 932);
@@ -914,8 +912,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAddToBasket;
         private System.Windows.Forms.TextBox tbBarcode;
         private System.Windows.Forms.DataGridView dataGridViewBasket;
         private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
@@ -969,6 +965,7 @@
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Button btnAddToBasket;
     }
 }
 

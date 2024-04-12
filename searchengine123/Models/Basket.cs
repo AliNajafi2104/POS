@@ -11,7 +11,7 @@ namespace searchengine123
         {
         
         public Dictionary<String,double> keyValuePairs { get; set; }
-        public double Total { get; set; }
+       
         public DateTime time { get; set; }
         public Basket()
         {

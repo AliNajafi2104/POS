@@ -23,7 +23,7 @@ namespace searchengine123
             {
                 InitializeComponent();
                 this.KeyPreview = true;
-                this.KeyDown += Form1_KeyDown;
+                this.KeyPress += Form1_KeyPress;
 
 
             dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
@@ -370,33 +370,35 @@ namespace searchengine123
 
 
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= '0' && e.KeyChar <= '9')
             {
-                if ((e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9) || (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9))
-                {
-                    tbBarcode.AppendText(e.KeyCode.ToString().Substring(1)); // Append the numeric key to the barcode TextBox
-                }
-                if (e.KeyCode == Keys.Enter)
-                {
+                tbBarcode.AppendText(e.KeyChar.ToString()); // Append the numeric key to the barcode TextBox
+            }
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
                 // Perform the desired action (e.g., trigger button click event)
-                    btnAddToBasket.PerformClick();
-                }
-            if (e.KeyCode == Keys.Back && tbBarcode.Text.Length > 0)
+                btnAddToBasket.PerformClick();
+                e.Handled = true; // Mark the key press event as handled to prevent further processing
+            }
+            else if (e.KeyChar == '\b' && tbBarcode.Text.Length > 0)
             {
                 // Delete the last character from the barcode input
                 tbBarcode.Text = tbBarcode.Text.Remove(tbBarcode.Text.Length - 1);
 
                 // Move the cursor to the end of the text
                 tbBarcode.SelectionStart = tbBarcode.Text.Length;
+                e.Handled = true; // Mark the key press event as handled to prevent further processing
             }
+            else if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                // If not a digit or control key, ignore the key press event
+                e.Handled = true;
+            }
+        }
 
-            if (!char.IsDigit((char)e.KeyCode) && !char.IsControl((char)e.KeyCode))
-                {
-                    // If not a digit or control key, ignore the key press event
-                    e.Handled = true;
-                }
-            }
-            private void UpdateProgressBar()
+        private void UpdateProgressBar()
             {
                 // Convert double progress to an integer
                 int integerProgress = (int)Math.Round(totalSumForDagenDisplay);
@@ -423,8 +425,9 @@ namespace searchengine123
             {
                 Form3 form3 = new Form3(barcode, this);
             this.Hide();
-                form3.ShowDialog(); 
-            }
+                form3.ShowDialog();
+            this.ActiveControl = null;
+        }
             public static double rundOp(double tal)
             {
                 int intTal = (int)tal;
@@ -451,10 +454,11 @@ namespace searchengine123
 
             private void button10_Click(object sender, EventArgs e)
             {
-                Form4 form4 = new Form4(this);
+                Form4 form4 = new Form4(this,btnAddToBasket);
             
             form4.Show();
             this.Hide();
+            this.ActiveControl = null;
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -463,6 +467,7 @@ namespace searchengine123
 
             form5.Show();   
             this.Hide();
+            this.ActiveControl = null;
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -493,6 +498,7 @@ namespace searchengine123
             Galleri galleri = new Galleri(this);
             galleri.Show();
             this.Hide();
+            this.ActiveControl = null;
         }
 
         
@@ -519,7 +525,7 @@ namespace searchengine123
             Basket basket = new Basket
             {
                 keyValuePairs =nonZeroCategories,
-                Total = nonZeroCategories.Values.Sum()
+               
             };
             // Calculate and display the overall total
             overallTotal = nonZeroCategories.Values.Sum();

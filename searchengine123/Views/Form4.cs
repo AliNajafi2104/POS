@@ -15,7 +15,7 @@ namespace searchengine123.Views
 {
     public partial class Form4 : Form
     {
-        public Form4(Form form)
+        public Form4(Form form,Button btn)
         {
             InitializeComponent();
             weeklyTotal();
@@ -27,11 +27,43 @@ namespace searchengine123.Views
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.White;
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
             this.WindowState = FormWindowState.Maximized;
-            
+            baskets = SQL_Sales.ReadSoldBaskets();
             form_ = form;
+
+
+            foreach (Basket b in baskets)
+            {
+                List<Product> products = new List<Product>();
+                foreach (KeyValuePair<String, double> kvp in b.keyValuePairs)
+                {
+                    totalPrBasket += kvp.Value;
+                    Product product = new Product
+                    {
+                        Vare = kvp.Key,
+                        Pris = kvp.Value,
+                    };
+                    products.Add(product);
+                }
+
+                DateSale datesale = new DateSale
+                {
+                    TotalSale = totalPrBasket,
+                    Date = b.time
+                };
+                list.Add(datesale);
+                totalPrBasket = 0;
+                listOfLists.Add(products);
+            }
+
+            dataGridView3.DataSource = list;
+            
+            basketStyling();
+            btn_ = btn;
         }
 
-        Form form_;
+        List<List<Product>> listOfLists = new List<List<Product>>();
+
+        Button btn_;
 
         #region STYLING
         private void chartStyling()
@@ -50,7 +82,7 @@ namespace searchengine123.Views
             chart1.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
             chart1.BackColor = Color.FromArgb(240, 240, 240); // Set background color
                                                               // Assuming you have a reference to your chart object
-           
+
 
         }
         private void MostSoldStyling()
@@ -65,10 +97,29 @@ namespace searchengine123.Views
         }
 
 
+        private void basketStyling()
+        {
+
+
+            dataGridView3.Columns["TotalSale"].HeaderText = "Total for kurv";
+            dataGridView3.Columns["date"].HeaderText = "Tidspunkt";
+            dataGridView3.RowTemplate.Height = 30;
+
+            dataGridView3.RowHeadersVisible = false;
+
+            
+
+
+
+
+
+        }
+
         #endregion
         private void weeklyTotal()
         {
             List<DateSale> reading = SQL_Sales.ReadAllDailySales();
+            reading.Reverse();
             dataGridView1.DataSource = reading;
             double[] totalArr = new double[reading.Count()];
             DateTime[] date = new DateTime[reading.Count()];
@@ -86,13 +137,23 @@ namespace searchengine123.Views
                 series.Points.AddXY(date[i], totalArr[i]);
             }
         }
-       
+
+
+
+        List<Basket> baskets = new List<Basket>();
+        List<DateSale> list = new List<DateSale>();
+        Form form_;
+        double totalPrBasket = 0;
 
 
         private void button1_Click(object sender, EventArgs e)
         {
+            btn_.Focus();
             this.Close();
+           
             form_.Show();
+           
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -114,6 +175,51 @@ namespace searchengine123.Views
         {
             form_.Show();
             this.Close();
+        }
+
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < listOfLists.Count)
+            {
+                // Clear the current data source
+                dataGridView4.DataSource = null;
+
+                // Get the index of the clicked row
+                int clickedRowIndex = e.RowIndex;
+
+                // Set the selected list from listOfLists as the data source for dataGridView4
+                dataGridView4.DataSource = listOfLists[clickedRowIndex];
+
+                // Refresh the dataGridView4 to reflect the changes
+                dataGridView4.Columns["Stregkode"].Visible = false;
+                dataGridView4.Columns["Ingen_stregkodemærkning"].Visible = false;
+                dataGridView4.Columns["Antal"].Visible = false;
+                dataGridView4.Columns["Kategori"].Visible = false;
+                dataGridView4.RowTemplate.Height = 30;
+                dataGridView4.Refresh();
+
+                // Assuming list is a list of DateSale objects and timestamp is a TextBox
+                timestamp.Text = list[clickedRowIndex].Date.ToString("HH:mm:ss"); // Adjust format as needed
+
+
+            }
+        }
+
+        private void dataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView4.DataSource = null;
+            dataGridView4.DataSource = baskets[baskets.Count - 1];
+            dataGridView4.Refresh();
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
