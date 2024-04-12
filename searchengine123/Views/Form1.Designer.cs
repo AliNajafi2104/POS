@@ -152,8 +152,8 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewBasket.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewBasket.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -172,7 +172,7 @@
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.MintCream;
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewBasket.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewBasket.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridViewBasket.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.ColumnHeaderSelect;
             this.dataGridViewBasket.Size = new System.Drawing.Size(629, 904);
             this.dataGridViewBasket.TabIndex = 3;
             this.dataGridViewBasket.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBasket_CellClick);

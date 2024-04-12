@@ -26,11 +26,13 @@ namespace searchengine123
                 this.KeyDown += Form1_KeyDown;
 
 
+            dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dataGridViewBasket.MultiSelect = false;
 
-           
 
-            
-                dataInitialization();
+
+
+            dataInitialization();
                 stylingInitialization();
             tbBarcode.Enabled = false;
 
@@ -80,9 +82,11 @@ namespace searchengine123
             dataGridViewNoBarcode.DefaultCellStyle.SelectionBackColor = Color.MintCream;
             dataGridViewNoBarcode.DefaultCellStyle.SelectionForeColor = Color.Black;
 
+            dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dataGridViewBasket.MultiSelect = false;
 
-            
-            }
+
+        }
             private void dataInitialization()
             {
                 List<Product> productsKgPrice = new List<Product>();
@@ -103,8 +107,11 @@ namespace searchengine123
 
                 totalSumForDagenDisplay = SQL_Sales.ReadDailySale();
                 UpdateProgressBar();
-                //dataGridViewBasket.DataSource = scannedProducts;
-            }
+            //dataGridViewBasket.DataSource = scannedProducts;
+
+            dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dataGridViewBasket.MultiSelect = false;
+        }
         #endregion
 
 
@@ -115,7 +122,7 @@ namespace searchengine123
             {
 
 
-            dataGridViewBasket.RowTemplate.Height = 70;
+           
             try
             {
                 panel1.Hide();
@@ -132,6 +139,7 @@ namespace searchengine123
 
                     if (addedProduct != null)
                     {
+                        dataGridViewBasket.RowTemplate.Height = 70;
                         bool productExists = false;
                         foreach (Product product in scannedProducts)
                         {
@@ -296,6 +304,8 @@ namespace searchengine123
                 dataGridViewBasket.ScrollBars = ScrollBars.None;
             dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
 
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Transparent; // Or any color matching cell's background
+            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black; // Or any color matching cell's text
 
         }
         public void dataGridViewBasketRefresh()
@@ -306,8 +316,13 @@ namespace searchengine123
                 label2.Text = $"Total:   {rundOp(totalSum_CurrentBasket):C}";
                 basketGridStyling();
 
-            }       
-            private void dataGridViewBasket_CellClick(object sender, DataGridViewCellEventArgs e)
+            dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dataGridViewBasket.MultiSelect = false;
+            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Transparent; // Or any color matching cell's background
+            dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor; // Or any color matching cell's text
+
+        }
+        private void dataGridViewBasket_CellClick(object sender, DataGridViewCellEventArgs e)
             {
                 // Check if the click is on a valid cell
                 if (e.RowIndex >= 0 && e.RowIndex < scannedProducts.Count)
