@@ -49,7 +49,6 @@
             this.tbBarcode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewBasket = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnOrderConfirmed = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -86,7 +85,6 @@
             this.button15 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
@@ -100,6 +98,8 @@
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBasket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNoBarcode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KGpris)).BeginInit();
@@ -110,14 +110,14 @@
             // 
             // btnAddToBasket
             // 
-            this.btnAddToBasket.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnAddToBasket.BackColor = System.Drawing.SystemColors.GrayText;
             this.btnAddToBasket.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToBasket.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btnAddToBasket.Location = new System.Drawing.Point(507, 13);
             this.btnAddToBasket.Name = "btnAddToBasket";
             this.btnAddToBasket.Size = new System.Drawing.Size(134, 70);
             this.btnAddToBasket.TabIndex = 0;
-            this.btnAddToBasket.Text = "Tilføj";
+            this.btnAddToBasket.Text = "Søg";
             this.btnAddToBasket.UseVisualStyleBackColor = false;
             this.btnAddToBasket.Click += new System.EventHandler(this.btnAddToBasket_Click_1);
             // 
@@ -191,28 +191,16 @@
             this.dataGridViewBasket.TabIndex = 3;
             this.dataGridViewBasket.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBasket_CellContentClick);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label2.Location = new System.Drawing.Point(3, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 55);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Total:";
-            // 
             // btnOrderConfirmed
             // 
             this.btnOrderConfirmed.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnOrderConfirmed.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrderConfirmed.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrderConfirmed.ForeColor = System.Drawing.SystemColors.InfoText;
             this.btnOrderConfirmed.Location = new System.Drawing.Point(651, 12);
             this.btnOrderConfirmed.Name = "btnOrderConfirmed";
             this.btnOrderConfirmed.Size = new System.Drawing.Size(214, 71);
             this.btnOrderConfirmed.TabIndex = 11;
-            this.btnOrderConfirmed.Text = "Gennemfør salg";
+            this.btnOrderConfirmed.Text = "Betaling";
             this.btnOrderConfirmed.UseVisualStyleBackColor = false;
             this.btnOrderConfirmed.Click += new System.EventHandler(this.btnOrderConfirmed_Click);
             this.btnOrderConfirmed.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
@@ -220,10 +208,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label4.Location = new System.Drawing.Point(650, 909);
+            this.label4.Location = new System.Drawing.Point(647, 912);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(278, 33);
             this.label4.TabIndex = 14;
@@ -231,10 +219,11 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(651, 948);
+            this.progressBar1.BackColor = System.Drawing.Color.Cyan;
+            this.progressBar1.Location = new System.Drawing.Point(653, 946);
             this.progressBar1.Maximum = 10000;
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(442, 50);
+            this.progressBar1.Size = new System.Drawing.Size(440, 50);
             this.progressBar1.TabIndex = 15;
             // 
             // contextMenuStrip1
@@ -288,14 +277,15 @@
             // 
             // btnResetBasket
             // 
+            this.btnResetBasket.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnResetBasket.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetBasket.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnResetBasket.Location = new System.Drawing.Point(479, 933);
+            this.btnResetBasket.Location = new System.Drawing.Point(464, 5);
             this.btnResetBasket.Name = "btnResetBasket";
-            this.btnResetBasket.Size = new System.Drawing.Size(162, 65);
+            this.btnResetBasket.Size = new System.Drawing.Size(162, 55);
             this.btnResetBasket.TabIndex = 40;
             this.btnResetBasket.Text = "Nulstil Kurv";
-            this.btnResetBasket.UseVisualStyleBackColor = true;
+            this.btnResetBasket.UseVisualStyleBackColor = false;
             this.btnResetBasket.Click += new System.EventHandler(this.btnResetBasket_Click);
             this.btnResetBasket.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             // 
@@ -352,7 +342,7 @@
             dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.KGpris.DefaultCellStyle = dataGridViewCellStyle29;
-            this.KGpris.Location = new System.Drawing.Point(1114, 92);
+            this.KGpris.Location = new System.Drawing.Point(1101, 92);
             this.KGpris.MultiSelect = false;
             this.KGpris.Name = "KGpris";
             this.KGpris.ReadOnly = true;
@@ -364,7 +354,7 @@
             this.KGpris.ShowCellToolTips = false;
             this.KGpris.ShowEditingIcon = false;
             this.KGpris.ShowRowErrors = false;
-            this.KGpris.Size = new System.Drawing.Size(320, 906);
+            this.KGpris.Size = new System.Drawing.Size(333, 906);
             this.KGpris.TabIndex = 111;
             this.KGpris.TabStop = false;
             // 
@@ -442,7 +432,6 @@
             this.deleteOne.Name = "deleteOne";
             this.deleteOne.Size = new System.Drawing.Size(144, 70);
             this.deleteOne.TabIndex = 126;
-            this.deleteOne.Text = "<";
             this.deleteOne.UseVisualStyleBackColor = true;
             this.deleteOne.Click += new System.EventHandler(this.click);
             // 
@@ -581,7 +570,7 @@
             // 
             // btnOpretVare
             // 
-            this.btnOpretVare.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpretVare.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpretVare.ForeColor = System.Drawing.SystemColors.InfoText;
             this.btnOpretVare.Location = new System.Drawing.Point(871, 12);
             this.btnOpretVare.Name = "btnOpretVare";
@@ -593,7 +582,7 @@
             // 
             // button10
             // 
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.InfoText;
             this.button10.Location = new System.Drawing.Point(1059, 12);
             this.button10.Name = "button10";
@@ -605,7 +594,7 @@
             // 
             // button11
             // 
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.SystemColors.InfoText;
             this.button11.Location = new System.Drawing.Point(1260, 12);
             this.button11.Name = "button11";
@@ -629,9 +618,9 @@
             // 
             // button13
             // 
-            this.button13.BackColor = System.Drawing.Color.Crimson;
+            this.button13.BackColor = System.Drawing.Color.Transparent;
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button13.ForeColor = System.Drawing.Color.Black;
             this.button13.Location = new System.Drawing.Point(1779, 12);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(121, 71);
@@ -702,7 +691,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.button15);
@@ -711,15 +700,6 @@
             this.panel1.Size = new System.Drawing.Size(502, 685);
             this.panel1.TabIndex = 153;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(12, 933);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(461, 65);
-            this.panel2.TabIndex = 154;
             // 
             // button7
             // 
@@ -864,11 +844,33 @@
             this.button20.TabIndex = 174;
             this.button20.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.label2.Location = new System.Drawing.Point(3, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(143, 55);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Total:";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.btnResetBasket);
+            this.panel2.Location = new System.Drawing.Point(12, 933);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(629, 63);
+            this.panel2.TabIndex = 154;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1924, 1045);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.button18);
@@ -910,15 +912,14 @@
             this.Controls.Add(this.KGpris);
             this.Controls.Add(this.btnGrønt);
             this.Controls.Add(this.tbManuelPrice);
-            this.Controls.Add(this.btnResetBasket);
             this.Controls.Add(this.dataGridViewNoBarcode);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnOrderConfirmed);
             this.Controls.Add(this.dataGridViewBasket);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbBarcode);
             this.Controls.Add(this.btnAddToBasket);
+            this.Controls.Add(this.progressBar1);
             this.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.Name = "Form1";
             this.Text = "Viborg vest marked";
@@ -942,7 +943,6 @@
         private System.Windows.Forms.TextBox tbBarcode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewBasket;
-        private System.Windows.Forms.Label label2;
         private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
         private System.Windows.Forms.Button btnOrderConfirmed;
         private System.Windows.Forms.Label label4;
@@ -980,7 +980,6 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button21;
@@ -994,6 +993,8 @@
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

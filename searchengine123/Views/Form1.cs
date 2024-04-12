@@ -12,6 +12,7 @@ using System.Linq;
 
 
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using searchengine123.Properties;
 
 
 namespace searchengine123
@@ -46,7 +47,7 @@ namespace searchengine123
             dataGridView1.BackgroundColor = Color.LightGray;
             dataGridView1.RowTemplate.Height = 50;
 
-
+            deleteOne.Image = Properties.Resources.back;
 
 
         }
