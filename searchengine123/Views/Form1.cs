@@ -176,7 +176,7 @@ namespace searchengine123
                     {
                         SQL_Sales.UpdateDailySale(totalSum_CurrentBasket);
                         totalSumForDagenDisplay += rundOp(totalSum_CurrentBasket);
-                        label4.Text = $"Total salg i dag: {totalSumForDagenDisplay:C}";
+                        label4.Text = $"Total salg i dag:        {totalSumForDagenDisplay:C}";
                         UpdateProgressBar();
                         SQL_Sales.RegisterProductSale(scannedProducts);
                     categoryTotalPrices.Clear();
@@ -242,7 +242,7 @@ namespace searchengine123
                 {
                     tbManuelPrice.Clear();
                 }
-                else if (control.Text == "<")
+                else if (control.Text == "")
                 {
                     if (tbManuelPrice.Text.Length > 0)
                     {
@@ -296,7 +296,7 @@ namespace searchengine123
                 dataGridViewBasket.DataSource = null;
                 dataGridViewBasket.DataSource = scannedProducts;
                 dataGridViewBasket.ClearSelection();
-                label2.Text = $"Total: {rundOp(totalSum_CurrentBasket):C}";
+                label2.Text = $"Total:   {rundOp(totalSum_CurrentBasket):C}";
                 basketGridStyling();
 
             }       
@@ -366,7 +366,7 @@ namespace searchengine123
             {
                 // Convert double progress to an integer
                 int integerProgress = (int)Math.Round(totalSumForDagenDisplay);
-                label4.Text = $"Total salg i dag: {totalSumForDagenDisplay:C}";
+                label4.Text = $"Total salg i dag:       {totalSumForDagenDisplay:C}";
                 // Update the ProgressBar value
                 if (integerProgress <= progressBar1.Maximum)
                 {
