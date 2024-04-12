@@ -325,7 +325,7 @@ namespace searchengine123
             double totalSumForDagenDisplay;
         bool multiply;
         int multiplier = 1;
-        
+        int test;
               Dictionary<string, double> categoryTotalPrices;
         #endregion
 
