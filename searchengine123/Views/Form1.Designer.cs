@@ -47,7 +47,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAddToBasket = new System.Windows.Forms.Button();
             this.tbBarcode = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewBasket = new System.Windows.Forms.DataGridView();
             this.btnOrderConfirmed = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -111,9 +110,9 @@
             this.btnAddToBasket.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnAddToBasket.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddToBasket.ForeColor = System.Drawing.Color.Black;
-            this.btnAddToBasket.Location = new System.Drawing.Point(507, 13);
+            this.btnAddToBasket.Location = new System.Drawing.Point(507, 15);
             this.btnAddToBasket.Name = "btnAddToBasket";
-            this.btnAddToBasket.Size = new System.Drawing.Size(134, 70);
+            this.btnAddToBasket.Size = new System.Drawing.Size(134, 68);
             this.btnAddToBasket.TabIndex = 0;
             this.btnAddToBasket.Text = "Søg";
             this.btnAddToBasket.UseVisualStyleBackColor = false;
@@ -122,25 +121,14 @@
             // tbBarcode
             // 
             this.tbBarcode.BackColor = System.Drawing.SystemColors.Control;
-            this.tbBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbBarcode.Location = new System.Drawing.Point(237, 30);
+            this.tbBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 37F);
+            this.tbBarcode.Location = new System.Drawing.Point(12, 18);
             this.tbBarcode.Name = "tbBarcode";
             this.tbBarcode.ReadOnly = true;
-            this.tbBarcode.Size = new System.Drawing.Size(257, 38);
+            this.tbBarcode.Size = new System.Drawing.Size(489, 63);
             this.tbBarcode.TabIndex = 1;
             this.tbBarcode.TabStop = false;
             this.tbBarcode.TextChanged += new System.EventHandler(this.tbBarcode_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label1.Location = new System.Drawing.Point(12, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 33);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Scan stregkode:";
             // 
             // dataGridViewBasket
             // 
@@ -168,7 +156,6 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewBasket.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewBasket.Enabled = false;
             this.dataGridViewBasket.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridViewBasket.Location = new System.Drawing.Point(12, 92);
             this.dataGridViewBasket.Name = "dataGridViewBasket";
@@ -185,18 +172,18 @@
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.MintCream;
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             this.dataGridViewBasket.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewBasket.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridViewBasket.Size = new System.Drawing.Size(629, 904);
             this.dataGridViewBasket.TabIndex = 3;
-            this.dataGridViewBasket.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBasket_CellContentClick);
             // 
             // btnOrderConfirmed
             // 
             this.btnOrderConfirmed.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnOrderConfirmed.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrderConfirmed.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnOrderConfirmed.Location = new System.Drawing.Point(651, 12);
+            this.btnOrderConfirmed.Location = new System.Drawing.Point(651, 15);
             this.btnOrderConfirmed.Name = "btnOrderConfirmed";
-            this.btnOrderConfirmed.Size = new System.Drawing.Size(214, 71);
+            this.btnOrderConfirmed.Size = new System.Drawing.Size(214, 68);
             this.btnOrderConfirmed.TabIndex = 11;
             this.btnOrderConfirmed.Text = "Betaling";
             this.btnOrderConfirmed.UseVisualStyleBackColor = false;
@@ -571,9 +558,9 @@
             // 
             this.btnOpretVare.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpretVare.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btnOpretVare.Location = new System.Drawing.Point(871, 12);
+            this.btnOpretVare.Location = new System.Drawing.Point(871, 15);
             this.btnOpretVare.Name = "btnOpretVare";
-            this.btnOpretVare.Size = new System.Drawing.Size(182, 71);
+            this.btnOpretVare.Size = new System.Drawing.Size(182, 68);
             this.btnOpretVare.TabIndex = 143;
             this.btnOpretVare.Text = "Opret vare";
             this.btnOpretVare.UseVisualStyleBackColor = true;
@@ -583,9 +570,9 @@
             // 
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.button10.Location = new System.Drawing.Point(1059, 12);
+            this.button10.Location = new System.Drawing.Point(1059, 15);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(195, 71);
+            this.button10.Size = new System.Drawing.Size(195, 68);
             this.button10.TabIndex = 144;
             this.button10.Text = "Statistik";
             this.button10.UseVisualStyleBackColor = true;
@@ -595,9 +582,9 @@
             // 
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.button11.Location = new System.Drawing.Point(1260, 12);
+            this.button11.Location = new System.Drawing.Point(1260, 15);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(174, 71);
+            this.button11.Size = new System.Drawing.Size(174, 68);
             this.button11.TabIndex = 145;
             this.button11.Text = "Regnskab";
             this.button11.UseVisualStyleBackColor = true;
@@ -607,9 +594,9 @@
             // 
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.button12.Location = new System.Drawing.Point(1620, 12);
+            this.button12.Location = new System.Drawing.Point(1620, 15);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(153, 71);
+            this.button12.Size = new System.Drawing.Size(153, 68);
             this.button12.TabIndex = 146;
             this.button12.Text = "Minimer";
             this.button12.UseVisualStyleBackColor = true;
@@ -620,9 +607,9 @@
             this.button13.BackColor = System.Drawing.Color.Transparent;
             this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.ForeColor = System.Drawing.Color.Black;
-            this.button13.Location = new System.Drawing.Point(1779, 12);
+            this.button13.Location = new System.Drawing.Point(1779, 15);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(121, 71);
+            this.button13.Size = new System.Drawing.Size(121, 68);
             this.button13.TabIndex = 147;
             this.button13.Text = "X";
             this.button13.UseVisualStyleBackColor = false;
@@ -632,9 +619,9 @@
             // 
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.button14.Location = new System.Drawing.Point(1440, 12);
+            this.button14.Location = new System.Drawing.Point(1440, 15);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(174, 71);
+            this.button14.Size = new System.Drawing.Size(174, 68);
             this.button14.TabIndex = 148;
             this.button14.Text = "Galleri";
             this.button14.UseVisualStyleBackColor = true;
@@ -906,7 +893,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnOrderConfirmed);
             this.Controls.Add(this.dataGridViewBasket);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbBarcode);
             this.Controls.Add(this.btnAddToBasket);
             this.Controls.Add(this.progressBar1);
@@ -929,7 +915,6 @@
 
         private System.Windows.Forms.Button btnAddToBasket;
         private System.Windows.Forms.TextBox tbBarcode;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewBasket;
         private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
         private System.Windows.Forms.Button btnOrderConfirmed;

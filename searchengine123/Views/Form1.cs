@@ -439,10 +439,7 @@ namespace searchengine123
             this.ActiveControl = null;
         }
 
-        private void dataGridViewBasket_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
+       
 
         private void button12_Click(object sender, EventArgs e)
         {
@@ -520,6 +517,10 @@ namespace searchengine123
         {
 
         }
-        
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
