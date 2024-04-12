@@ -28,7 +28,7 @@ namespace searchengine123
 
            
 
-            dataGridViewBasket.CellClick += dataGridViewBasket_CellClick; // Tilslut CellClick-hændelsen til DataGridView
+            
                 dataInitialization();
                 stylingInitialization();
             tbBarcode.Enabled = false;
@@ -282,10 +282,11 @@ namespace searchengine123
                 dataGridViewBasket.Columns["Kategori"].Visible = false;
                 dataGridViewBasket.Columns["Ingen_stregkodemærkning"].Visible = false;
                 dataGridViewBasket.Columns["Vare"].Width = 200;
-                dataGridViewBasket.Columns["Stregkode"].Width = 150;
+                dataGridViewBasket.Columns["Stregkode"].Width = 250;
                 dataGridViewBasket.Columns["Pris"].Width = 130;
                 dataGridViewBasket.Columns["Antal"].Width = 90;
                 dataGridViewBasket.RowTemplate.Height = 50;
+            dataGridViewBasket.RowHeadersVisible= false;
                 dataGridViewBasket.ScrollBars = ScrollBars.None;
 
             }
