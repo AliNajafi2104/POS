@@ -188,7 +188,7 @@ namespace searchengine123
                     {
                         SQL_Sales.UpdateDailySale(totalSum_CurrentBasket);
                         totalSumForDagenDisplay += rundOp(totalSum_CurrentBasket);
-                        label4.Text = $"Total salg i dag:        {totalSumForDagenDisplay:C}";
+                        label4.Text = $"Total i dag:    {totalSumForDagenDisplay:C}";
                         UpdateProgressBar();
                         SQL_Sales.RegisterProductSale(scannedProducts);
                     categoryTotalPrices.Clear();
@@ -218,6 +218,7 @@ namespace searchengine123
             #region GENERIC BUTTONS
             private void ManuelPrice_Click(object sender, EventArgs e)
             {
+            dataGridViewBasket.RowTemplate.Height = 70;
             if (reset)
             {
                 totalSum_CurrentBasket = 0;
@@ -237,11 +238,13 @@ namespace searchengine123
                     });
                     totalSum_CurrentBasket += manuelPrice;
                     dataGridViewBasketRefresh();
-                    tbManuelPrice.Clear();
+                
+                tbManuelPrice.Clear();
                 btnAddToBasket.Focus();
                 }
+            
 
-            }
+        }
             private void click(object sender, EventArgs e)
             {
                 Control control = sender as Control;
@@ -402,7 +405,7 @@ namespace searchengine123
             {
                 // Convert double progress to an integer
                 int integerProgress = (int)Math.Round(totalSumForDagenDisplay);
-                label4.Text = $"Total salg i dag:       {totalSumForDagenDisplay:C}";
+                label4.Text = $"Total i dag:    {totalSumForDagenDisplay:C}";
                 // Update the ProgressBar value
                 if (integerProgress <= progressBar1.Maximum)
                 {
@@ -572,6 +575,36 @@ namespace searchengine123
         }
 
         private void dataGridViewBasket_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbManuelPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
         {
 
         }
