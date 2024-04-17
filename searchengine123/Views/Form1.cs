@@ -183,9 +183,7 @@ namespace searchengine123
             {
                 if (totalSum_CurrentBasket> 0)
                 {
-                    DialogResult = MessageBox.Show("Tryk OK hvis betalingen er godkendt!", "Vil du godkende ordren?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (DialogResult == DialogResult.OK)
-                    {
+                   
                         SQL_Sales.UpdateDailySale(totalSum_CurrentBasket);
                         totalSumForDagenDisplay += rundOp(totalSum_CurrentBasket);
                         label4.Text = $"Total i dag:    {totalSumForDagenDisplay:C}";
@@ -198,7 +196,7 @@ namespace searchengine123
                     btnAddToBasket.Focus();
                     panel1.Show();
                     reset = true;
-                    }
+                    
                 }
 
             }
@@ -272,7 +270,7 @@ namespace searchengine123
                 int.TryParse(control.Text, out multiplier);
                 multiply = false;
                 
-                this.ActiveControl = null;
+
                
             }
             else
@@ -280,7 +278,7 @@ namespace searchengine123
                
                     tbManuelPrice.Text += control.Text;
                 multiplier = 1;
-                this.ActiveControl = null;
+             
 
             }
             
@@ -551,6 +549,9 @@ namespace searchengine123
                 label3.Text = "Kunden skal have "+result.ToString() +" Kr. tilbage";
                 tbManuelPrice.Clear();
             }
+            this.ActiveControl = null;
+
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -606,6 +607,11 @@ namespace searchengine123
         private void progressBar1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnOrderConfirmed_KeyUp(object sender, KeyEventArgs e)
+        {
+            this.ActiveControl = null;
         }
     }
 }
