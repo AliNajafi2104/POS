@@ -377,43 +377,42 @@ namespace searchengine123
         {
             if (e.KeyChar >= '0' && e.KeyChar <= '9')
             {
-                tbBarcode.AppendText(e.KeyChar.ToString()); // Append the numeric key to the barcode TextBox
+                tbBarcode.AppendText(e.KeyChar.ToString()); 
             }
             else if (e.KeyChar == (char)Keys.Enter)
             {
-                // Perform the desired action (e.g., trigger button click event)
+                
                 btnAddToBasket.PerformClick();
-                e.Handled = true; // Mark the key press event as handled to prevent further processing
+                e.Handled = true; 
             }
             else if (e.KeyChar == '\b' && tbBarcode.Text.Length > 0)
             {
-                // Delete the last character from the barcode input
                 tbBarcode.Text = tbBarcode.Text.Remove(tbBarcode.Text.Length - 1);
 
-                // Move the cursor to the end of the text
+              
                 tbBarcode.SelectionStart = tbBarcode.Text.Length;
-                e.Handled = true; // Mark the key press event as handled to prevent further processing
+                e.Handled = true; 
             }
             else if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                // If not a digit or control key, ignore the key press event
+               
                 e.Handled = true;
             }
         }
 
         private void UpdateProgressBar()
             {
-                // Convert double progress to an integer
+              
                 int integerProgress = (int)Math.Round(totalSumForDagenDisplay);
                 label4.Text = $"Total i dag:    {totalSumForDagenDisplay:C}";
-                // Update the ProgressBar value
+               
                 if (integerProgress <= progressBar1.Maximum)
                 {
                     progressBar1.Value = integerProgress;
                 }
                 else
                 {
-                    // Handle the case when totalsumForDagen exceeds the ProgressBar's maximum
+                    
                     progressBar1.Value = progressBar1.Maximum;
                 }
             }
@@ -518,11 +517,11 @@ namespace searchengine123
             }
 
 
-            // Filter out categories with a total of 0
+         
             var nonZeroCategories = categoryTotalPrices.Where(kv => kv.Value != 0.0)
                                                       .ToDictionary(kv => kv.Key, kv => kv.Value);
 
-            // Bind the filtered data to the DataGridView
+
            
             dataGridView1.DataSource = nonZeroCategories.Select(kv => new { Kategori = kv.Key, Pris = kv.Value }).ToList();
             Basket basket = new Basket
@@ -530,7 +529,7 @@ namespace searchengine123
                 keyValuePairs =nonZeroCategories,
                
             };
-            // Calculate and display the overall total
+           
             overallTotal = nonZeroCategories.Values.Sum();
             SQL_Sales.CreateSoldBasket(basket);
             dataGridView1.ClearSelection();
