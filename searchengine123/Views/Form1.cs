@@ -514,21 +514,14 @@ namespace searchengine123
                 categoryTotalPrices[product.Kategori] += product.Pris * product.Antal;
             }
 
-
-         
-            var nonZeroCategories = categoryTotalPrices.Where(kv => kv.Value != 0.0)
-                                                      .ToDictionary(kv => kv.Key, kv => kv.Value);
-
-
-           
-            dataGridView1.DataSource = nonZeroCategories.Select(kv => new { Kategori = kv.Key, Pris = kv.Value }).ToList();
+            dataGridView1.DataSource = categoryTotalPrices.ToList();
             Basket basket = new Basket
             {
-                keyValuePairs =nonZeroCategories,
+                keyValuePairs =categoryTotalPrices,
                
             };
            
-            overallTotal = nonZeroCategories.Values.Sum();
+            overallTotal = categoryTotalPrices.Values.Sum();
             SQL_Sales.CreateSoldBasket(basket);
             dataGridView1.ClearSelection();
         }
