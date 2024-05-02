@@ -13,9 +13,9 @@ using Google.Protobuf.WellKnownTypes;
 
 namespace searchengine123.Views
 {
-    public partial class Form4 : Form
+    public partial class Statistik : Form
     {
-        public Form4(Form form,Button btn)
+        public Statistik(Form form,Button btn)
         {
             InitializeComponent();
             weeklyTotal();

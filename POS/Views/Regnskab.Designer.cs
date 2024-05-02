@@ -1,6 +1,6 @@
 ﻿namespace searchengine123.Views
 {
-    partial class Form5
+    partial class Regnskab
     {
         /// <summary>
         /// Required designer variable.

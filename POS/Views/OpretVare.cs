@@ -15,9 +15,9 @@ using Mysqlx;
 
 namespace searchengine123
 {
-    public partial class Form3 : Form
+    public partial class OpretVare : Form
     {
-        public Form3(double barcode, Form form)
+        public OpretVare(double barcode, Form form)
         {
             barcode_ = barcode;
             InitializeComponent();

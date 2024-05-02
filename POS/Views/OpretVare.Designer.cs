@@ -1,6 +1,6 @@
 ﻿namespace searchengine123
 {
-    partial class Form3
+    partial class OpretVare
     {
         /// <summary>
         /// Required designer variable.

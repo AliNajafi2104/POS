@@ -17,9 +17,9 @@ using searchengine123.Properties;
 
 namespace searchengine123
 {
-        public partial class Form1 : Form
+        public partial class Forside : Form
         {
-            public Form1()
+            public Forside()
             {
                 InitializeComponent();
                 this.KeyPreview = true;
@@ -29,8 +29,7 @@ namespace searchengine123
             dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridViewBasket.MultiSelect = false;
 
-
-
+            panel1.Visible = false;
 
             dataInitialization();
                 stylingInitialization();
@@ -194,7 +193,8 @@ namespace searchengine123
                     scannedProducts.Clear();
                     dataGridViewBasketRefresh();
                     btnAddToBasket.Focus();
-                    panel1.Show();
+                // panel1.Show();
+                btnResetBasket.PerformClick();
                     reset = true;
                     
                 }
@@ -423,7 +423,7 @@ namespace searchengine123
             }
             private void opretVare(double barcode)
             {
-                Form3 form3 = new Form3(barcode, this);
+                OpretVare form3 = new OpretVare(barcode, this);
             this.Hide();
                 form3.ShowDialog();
             this.ActiveControl = null;
@@ -454,7 +454,7 @@ namespace searchengine123
 
             private void button10_Click(object sender, EventArgs e)
             {
-                Form4 form4 = new Form4(this,btnAddToBasket);
+                Statistik form4 = new Statistik(this,btnAddToBasket);
             
             form4.Show();
             this.Hide();
@@ -463,7 +463,7 @@ namespace searchengine123
 
         private void button11_Click(object sender, EventArgs e)
         {
-            Form5 form5 = new Form5(this);
+            Regnskab form5 = new Regnskab(this);
 
             form5.Show();   
             this.Hide();

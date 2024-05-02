@@ -12,9 +12,9 @@ using searchengine123.Models;
 
 namespace searchengine123.Views
 {
-    public partial class Form5 : Form
+    public partial class Regnskab : Form
     {
-        public Form5(Form form)
+        public Regnskab(Form form)
         {
             InitializeComponent();
             List<DateSale> AllDailySales = SQL_Sales.ReadAllDailySales();
