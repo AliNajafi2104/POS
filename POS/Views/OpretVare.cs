@@ -113,7 +113,7 @@ namespace searchengine123
                         tbRedigerStregkodeSøg.Clear();
                     }
                 }
-                catch (Exception ex) { MessageBox.Show("error"); };
+                catch { MessageBox.Show("error"); };
                 
             }
         }

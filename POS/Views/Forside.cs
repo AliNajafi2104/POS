@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-using Google.Protobuf;
-using MySql.Data.MySqlClient;
+using System.Threading.Tasks;
 using searchengine123.Back_end;
 using searchengine123.Views;
 using System.Linq;
-
-
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using searchengine123.Properties;
 
 
@@ -28,8 +22,8 @@ namespace searchengine123
 
             dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridViewBasket.MultiSelect = false;
-
-            panel1.Visible = false;
+            pictureBox1.Image = Properties.Resources._checked;
+          
 
             dataInitialization();
                 stylingInitialization();
@@ -39,17 +33,15 @@ namespace searchengine123
             this.WindowState = FormWindowState.Maximized;
 
 
-            panel1.Hide();
+      
 
 
             categoryTotalPrices = new Dictionary<string, double>();
 
 
-            dataGridView1.BackgroundColor = Color.LightGray;
-            dataGridView1.RowTemplate.Height = 50;
-
-            deleteOne.Image = Properties.Resources.back;
            
+            deleteOne.Image = Properties.Resources.back;
+           panel1.Visible = false;
 
         }
 
@@ -124,7 +116,7 @@ namespace searchengine123
            
             try
             {
-                panel1.Hide();
+               
                 if(reset)
                 {
                     totalSum_CurrentBasket = 0;
@@ -178,7 +170,7 @@ namespace searchengine123
             }
         }
     
-            public void btnOrderConfirmed_Click(object sender, EventArgs e)
+            public async void btnOrderConfirmed_Click(object sender, EventArgs e)
             {
                 if (totalSum_CurrentBasket> 0)
                 {
@@ -190,6 +182,9 @@ namespace searchengine123
                         SQL_Sales.RegisterProductSale(scannedProducts);
                     categoryTotalPrices.Clear();
                        CalculateCategoryTotals();
+                panel1.Visible = true;
+                await Task.Delay(700);
+                panel1.Visible = false;
                     scannedProducts.Clear();
                     dataGridViewBasketRefresh();
                     btnAddToBasket.Focus();
@@ -222,9 +217,9 @@ namespace searchengine123
                 totalSum_CurrentBasket = 0;
                 reset = false;
             }
-            panel1.Hide();
+           
             Control control = sender as Control;
-                string controlName = control.Name;
+               
                 if (double.TryParse(tbManuelPrice.Text, out double manuelPrice))
                 {
                     scannedProducts.Add(new Product
@@ -305,8 +300,7 @@ namespace searchengine123
                 dataGridViewBasket.ScrollBars = ScrollBars.None;
             dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
 
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Transparent; // Or any color matching cell's background
-            dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black; // Or any color matching cell's text
+           
 
         }
         public void dataGridViewBasketRefresh()
@@ -319,8 +313,7 @@ namespace searchengine123
 
             dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridViewBasket.MultiSelect = false;
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Transparent; // Or any color matching cell's background
-            dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor; // Or any color matching cell's text
+          
 
         }
         private void dataGridViewBasket_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -357,12 +350,12 @@ namespace searchengine123
 
         #region VARIABLES
         List<Product> scannedProducts = new List<Product>();
-            double TotalSqlDate;
+           
             double totalSum_CurrentBasket;
             double totalSumForDagenDisplay;
         bool multiply;
         int multiplier = 1;
-        int test;
+       
               Dictionary<string, double> categoryTotalPrices;
         #endregion
 
@@ -514,7 +507,7 @@ namespace searchengine123
                 categoryTotalPrices[product.Kategori] += product.Pris * product.Antal;
             }
 
-            dataGridView1.DataSource = categoryTotalPrices.ToList();
+           
             Basket basket = new Basket
             {
                 keyValuePairs =categoryTotalPrices,
@@ -523,7 +516,7 @@ namespace searchengine123
            
             overallTotal = categoryTotalPrices.Values.Sum();
             SQL_Sales.CreateSoldBasket(basket);
-            dataGridView1.ClearSelection();
+            
         }
         
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -539,7 +532,7 @@ namespace searchengine123
             if (double.TryParse(tbManuelPrice.Text, out inputNumber))
             {
                 double result = inputNumber - totalSum_CurrentBasket;
-                label3.Text = "Kunden skal have "+result.ToString() +" Kr. tilbage";
+
                 tbManuelPrice.Clear();
             }
             this.ActiveControl = null;
@@ -605,6 +598,36 @@ namespace searchengine123
         private void btnOrderConfirmed_KeyUp(object sender, KeyEventArgs e)
         {
             this.ActiveControl = null;
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
