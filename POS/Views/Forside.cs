@@ -22,9 +22,9 @@ namespace searchengine123
 
             dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dataGridViewBasket.MultiSelect = false;
-            pictureBox1.Image = Properties.Resources._checked;
-          
 
+
+            pictureBox1.Image = Properties.Resources.checked2;
             dataInitialization();
                 stylingInitialization();
             tbBarcode.Enabled = false;
@@ -41,7 +41,7 @@ namespace searchengine123
 
            
             deleteOne.Image = Properties.Resources.back;
-           panel1.Visible = false;
+           pictureBox1.Visible = false;
 
         }
 
@@ -182,9 +182,9 @@ namespace searchengine123
                         SQL_Sales.RegisterProductSale(scannedProducts);
                     categoryTotalPrices.Clear();
                        CalculateCategoryTotals();
-                panel1.Visible = true;
-                await Task.Delay(700);
-                panel1.Visible = false;
+                pictureBox1.Visible = true;
+                await Task.Delay(850);
+                pictureBox1.Visible = false;
                     scannedProducts.Clear();
                     dataGridViewBasketRefresh();
                     btnAddToBasket.Focus();

@@ -195,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\back.png" />
+    <None Include="Resources\checked2.png" />
     <Content Include="Resources\persille.png" />
   </ItemGroup>
   <ItemGroup>
