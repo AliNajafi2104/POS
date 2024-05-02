@@ -182,17 +182,20 @@ namespace searchengine123
                         SQL_Sales.RegisterProductSale(scannedProducts);
                     categoryTotalPrices.Clear();
                        CalculateCategoryTotals();
-                pictureBox1.Visible = true;
-                await Task.Delay(850);
-                pictureBox1.Visible = false;
+                
                     scannedProducts.Clear();
-                    dataGridViewBasketRefresh();
-                    btnAddToBasket.Focus();
+              
+                dataGridViewBasketRefresh();
+              
+                btnAddToBasket.Focus();
                 // panel1.Show();
                 btnResetBasket.PerformClick();
                     reset = true;
-                    
-                }
+                pictureBox1.Visible = true;
+                await Task.Delay(800);
+                pictureBox1.Visible = false;
+
+            }
 
             }
         bool reset;
