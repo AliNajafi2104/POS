@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\SQL_Sales.cs" />
+    <Compile Include="Models\CategoryTotals.cs" />
     <Compile Include="Models\DateSale.cs" />
     <Compile Include="Models\Udgift.cs" />
     <Compile Include="Views\OpretVare.cs">

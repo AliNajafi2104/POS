@@ -292,16 +292,26 @@ namespace searchengine123
             #region BASKET_GRIDVIEW
             private void basketGridStyling()
             {
-               dataGridViewBasket.Columns["Kategori"].Visible = false;
+
+
+            try
+            {
+                dataGridViewBasket.Columns["Kategori"].Visible = false;
                 dataGridViewBasket.Columns["Ingen_stregkodemærkning"].Visible = false;
                 dataGridViewBasket.Columns["Vare"].Width = 200;
                 dataGridViewBasket.Columns["Stregkode"].Width = 250;
                 dataGridViewBasket.Columns["Pris"].Width = 130;
                 dataGridViewBasket.Columns["Antal"].Width = 90;
                 dataGridViewBasket.RowTemplate.Height = 70;
-            dataGridViewBasket.RowHeadersVisible= false;
+                dataGridViewBasket.RowHeadersVisible = false;
                 dataGridViewBasket.ScrollBars = ScrollBars.None;
-            dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
+                dataGridViewBasket.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            }
+
+              catch
+            {
+
+            }
 
            
 

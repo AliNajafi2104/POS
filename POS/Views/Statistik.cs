@@ -22,7 +22,7 @@ namespace searchengine123.Views
             chartStyling();
             dataGridView2.DataSource = SQL_Sales.ReadLatestSold();
             MostSoldStyling();
-            // Assuming your DataGridView is named dataGridView1
+           
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.White;
             dataGridView1.DefaultCellStyle.SelectionForeColor = Color.Black;
@@ -59,6 +59,8 @@ namespace searchengine123.Views
             
             basketStyling();
             btn_ = btn;
+            CategoryTotals();
+          
         }
 
         List<List<Product>> listOfLists = new List<List<Product>>();
@@ -137,7 +139,33 @@ namespace searchengine123.Views
                 series.Points.AddXY(date[i], totalArr[i]);
             }
         }
+        private void CategoryTotals()
+        {
 
+            Dictionary<string, double> CategoryTotal = new Dictionary<string, double>();
+            foreach (Basket basket in baskets)
+            {
+                foreach(string key in basket.keyValuePairs.Keys)
+                {
+                    if(CategoryTotal.ContainsKey(key))
+                    {
+                        CategoryTotal[key] += basket.keyValuePairs[key];
+                    }
+                    else
+                    {
+                        CategoryTotal.Add(key, basket.keyValuePairs[key]);
+                    }
+                }
+            }
+            string newKey = "Diverse"; // Define your new key name
+            if (CategoryTotal.ContainsKey(""))
+            {
+                double value = CategoryTotal[""]; // Get the value associated with the empty string key
+                CategoryTotal.Remove(""); // Remove the entry with the empty string key
+                CategoryTotal[newKey] = value; // Add a new entry with the new key
+            }
+            dgvKategoriSalg.DataSource = CategoryTotal.ToList();
+        }
 
 
         List<Basket> baskets = new List<Basket>();
@@ -218,6 +246,11 @@ namespace searchengine123.Views
         }
 
         private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvKategoriSalg_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
