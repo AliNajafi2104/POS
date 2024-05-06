@@ -29,7 +29,7 @@ namespace searchengine123.Views
             this.WindowState = FormWindowState.Maximized;
             baskets = SQL_Sales.ReadSoldBaskets();
             form_ = form;
-
+            
 
             foreach (Basket b in baskets)
             {
@@ -165,6 +165,11 @@ namespace searchengine123.Views
                 CategoryTotal[newKey] = value; // Add a new entry with the new key
             }
             dgvKategoriSalg.DataSource = CategoryTotal.ToList();
+            dgvKategoriSalg.Columns[0].HeaderText = "Kategori";
+            dgvKategoriSalg.Columns[1].HeaderText = "Total";
+            dgvKategoriSalg.RowTemplate.Height = 40;
+            dgvKategoriSalg.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+            dgvKategoriSalg.GridColor = Color.Black;
         }
 
 
@@ -237,6 +242,7 @@ namespace searchengine123.Views
         {
             dataGridView4.DataSource = null;
             dataGridView4.DataSource = baskets[baskets.Count - 1];
+            dataGridView4.RowTemplate.Height = 30;
             dataGridView4.Refresh();
         }
 

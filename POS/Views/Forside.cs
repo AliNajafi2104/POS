@@ -613,37 +613,7 @@ namespace searchengine123
             this.ActiveControl = null;
         }
 
-        private void button26_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button29_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button33_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button28_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button31_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button34_Click(object sender, EventArgs e)
         {
 
         }
